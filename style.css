@@ -121,62 +121,53 @@
     .layer-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); white-space: nowrap; padding-top: 2px; min-width: 110px; }
     .layer-value { text-align: right; line-height: 1.6; font-size: 12px; color: var(--ink); }
 
-    /* WORK 
-    .work-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 56px; align-items: end; }
-    .work-intro h2 { font-family: 'Roboto', sans-serif; font-size: clamp(26px, 3vw, 42px); font-weight: 700; line-height: 1.15; }
-    .work-intro p { color: var(--mid); line-height: 1.85; }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-    }
-    .project-card {
-      position: relative; overflow: hidden; cursor: none;
-      background: var(--ink);
-    }
-    .project-card.featured { grid-column: span 2; }
-    .project-card .card-bg {
-      position: absolute; inset: 0;
-      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .project-card:hover .card-bg { transform: scale(1.05); }
-    .card-aspect { padding-top: 70%; }
-    .project-card.featured .card-aspect { padding-top: 56%; }
-    .card-content {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 28px; background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
-      transform: translateY(6px); transition: transform 0.4s ease;
-    }
-    .project-card:hover .card-content { transform: none; }
-    .card-num { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 0.12em; margin-bottom: 6px; }
-    .card-title { font-family: 'Roboto', sans-serif; font-size: 22px; font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 8px; }
-    .project-card.featured .card-title { font-size: 32px; }
-    .card-quote { font-size: 11px; color: rgba(255,255,255,0.5); font-style: italic; margin-bottom: 10px; line-height: 1.5; }
-    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
-    .tag { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.08); padding: 3px 8px; }
-    .card-arrow { position: absolute; top: 20px; right: 20px; width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-size: 14px; opacity: 0; transition: opacity 0.3s; }
-    .project-card:hover .card-arrow { opacity: 1; }
-*/
+    /* ============================================
+   WORK SECTION — replace the old /* WORK */ block
+   and all old .project-card / .card-* rules
+   with everything below
+   ============================================ */
+
 /* WORK */
 .work-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 56px; align-items: end; }
 .work-intro h2 { font-family: 'Roboto', sans-serif; font-size: clamp(26px, 3vw, 42px); font-weight: 700; line-height: 1.15; }
 .work-intro p { color: var(--mid); line-height: 1.85; }
 
+/* Sub-section intro (Web Era, FUN) */
+.work-sub-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-top: 96px;
+  margin-bottom: 48px;
+  padding-top: 64px;
+  border-top: 1px solid var(--line);
+}
+.work-sub-intro h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(22px, 2.5vw, 36px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+.work-sub-intro p {
+  color: var(--mid);
+  line-height: 1.85;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px 24px;
+  gap: 48px 32px;
 }
 
-/* Project Item — new layout */
+/* ---- Project Item ---- */
 .project-item {
   display: flex;
   flex-direction: column;
-  gap: 0;
   cursor: none;
 }
-.project-item.featured {
-  grid-column: span 2;
+.project-item.full {
+  grid-column: span 3;
 }
 
 /* Title above card */
@@ -189,18 +180,19 @@
   font-size: 10px;
   color: var(--mid);
   letter-spacing: 0.12em;
+  text-transform: uppercase;
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 .project-item-title .card-title {
   font-family: 'Roboto', sans-serif;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--ink);
-  line-height: 1.1;
+  line-height: 1.15;
   margin: 0;
 }
-.project-item.featured .project-item-title .card-title {
+.project-item.full .project-item-title .card-title {
   font-size: 28px;
 }
 
@@ -210,23 +202,26 @@
   overflow: hidden;
   display: block;
   background: var(--ink);
+  text-decoration: none;
 }
 .project-item-card .card-bg {
   position: absolute;
   inset: 0;
   transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.project-item-card:hover .card-bg { transform: scale(1.05); }
+.project-item-card:hover .card-bg { transform: scale(1.04); }
+
+/* Aspect ratio */
 .project-item-card::after {
   content: '';
   display: block;
-  padding-top: 70%;
+  padding-top: 72%;
 }
-.project-item.featured .project-item-card::after {
-  padding-top: 56%;
+.project-item.full .project-item-card::after {
+  padding-top: 40%;
 }
 
-/* Arrow stays on card */
+/* Arrow */
 .card-arrow {
   position: absolute;
   top: 16px; right: 16px;
@@ -234,7 +229,7 @@
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.6);
   font-size: 14px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -251,33 +246,46 @@
   color: var(--mid);
   font-style: italic;
   margin-bottom: 10px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 .card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
 .tag {
   font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--mid);
+  color: var(--ink);
   background: var(--line);
-  padding: 3px 8px;
+  padding: 3px 9px;
 }
 
-    /* BG patterns */
-    .bg-fawry { background: linear-gradient(135deg, #0A1628 0%, #0E2A5A 100%); }
-    .bg-caf { background: linear-gradient(135deg, #0A1F0E 0%, #1A3C20 100%); }
-    .bg-vivida { background: linear-gradient(135deg, #1A1208 0%, #2C200C 100%); }
-    .bg-s3 { background: linear-gradient(135deg, #0F0A1E 0%, #1E1432 100%); }
-    .bg-early { background: linear-gradient(135deg, #1C1008 0%, #2E1E10 100%); }
-    .bg-fun { background: linear-gradient(135deg, #081018 0%, #101C2C 100%); }
-    .card-pattern { position: absolute; inset: 0; opacity: 0.07; transition: opacity 0.5s; }
-    .project-card:hover .card-pattern { opacity: 0.13; }
-    .p-dots { background: radial-gradient(circle, #C8A97E 1px, transparent 1px) 0/24px 24px; }
-    .p-lines { background: repeating-linear-gradient(45deg, #7A9E8E 0, #7A9E8E 1px, transparent 0, transparent 28px); }
-    .p-grid { background: repeating-linear-gradient(0deg, #C8A97E 0, #C8A97E 1px, transparent 0, transparent 32px), repeating-linear-gradient(90deg, #C8A97E 0, #C8A97E 1px, transparent 0, transparent 32px); }
-    .p-radial { background: radial-gradient(ellipse at 30% 80%, #A97EC8 0%, transparent 55%); opacity: 0.12 !important; }
-    .p-hatch { background: repeating-linear-gradient(-45deg, #C8A97E 0, #C8A97E 1px, transparent 0, transparent 20px); }
-    .p-geo { background: conic-gradient(from 45deg at 50% 50%, transparent 0deg, #7A9E8E 30deg, transparent 30deg); opacity: 0.08 !important; }
+/* Fawry — two phones via background */
+.fawry-bg {
+  background-color: #0D2550;
+  background-image:
+    url(images/fawry-onboarding.webp),
+    url(images/fawry-home-v1.webp);
+  background-size: auto 78%, auto 78%;
+  background-position: 30% 100%, 70% 115%;
+  background-repeat: no-repeat, no-repeat;
+}
+
+
+  /* BG patterns */
+.bg-fawry  { background: linear-gradient(135deg, #0A1628 0%, #0E2A5A 100%); }
+.bg-caf    { background: linear-gradient(135deg, #0A1F0E 0%, #1A3C20 100%); }
+.bg-vivida { background: linear-gradient(135deg, #1A1208 0%, #2C200C 100%); }
+.bg-s3     { background: linear-gradient(135deg, #0F0A1E 0%, #1E1432 100%); }
+.bg-early  { background: linear-gradient(135deg, #1C1008 0%, #2E1E10 100%); }
+.bg-fun    { background: linear-gradient(135deg, #081018 0%, #101C2C 100%); }
+
+.card-pattern { position: absolute; inset: 0; opacity: 0.07; transition: opacity 0.5s; }
+.project-item-card:hover .card-pattern { opacity: 0.13; }
+.p-dots   { background: radial-gradient(circle, #C8A97E 1px, transparent 1px) 0/24px 24px; }
+.p-lines  { background: repeating-linear-gradient(45deg, #7A9E8E 0, #7A9E8E 1px, transparent 0, transparent 28px); }
+.p-grid   { background: repeating-linear-gradient(0deg, #C8A97E 0, #C8A97E 1px, transparent 0, transparent 32px), repeating-linear-gradient(90deg, #C8A97E 0, #C8A97E 1px, transparent 0, transparent 32px); }
+.p-radial { background: radial-gradient(ellipse at 30% 80%, #A97EC8 0%, transparent 55%); opacity: 0.12 !important; }
+.p-hatch  { background: repeating-linear-gradient(-45deg, #C8A97E 0, #C8A97E 1px, transparent 0, transparent 20px); }
+.p-geo    { background: conic-gradient(from 45deg at 50% 50%, transparent 0deg, #7A9E8E 30deg, transparent 30deg); opacity: 0.08 !important; }
 
     /* PROCESS */
     .process-section { background: var(--ink); color: var(--bg); padding: 100px 52px; }
@@ -385,9 +393,9 @@
       footer { padding: 24px; flex-direction: column; gap: 6px; }
       .about-grid, .work-intro, .skills-layout, .contact-grid, .process-header, .teaching-grid { grid-template-columns: 1fr; gap: 40px; }
       .projects-grid { grid-template-columns: 1fr; }
-      /*.project-card.featured { grid-column: span 1; } */
-/* with this: */
-.project-item.featured { grid-column: span 1; }
+     .projects-grid { grid-template-columns: 1fr; gap: 40px; }
+  .project-item.full { grid-column: span 1; }
+  .work-sub-intro { grid-template-columns: 1fr; gap: 20px; margin-top: 64px; }
       .steps { grid-template-columns: repeat(2, 1fr); }
       .exp-row { grid-template-columns: 1fr; gap: 4px; }
       .exp-location { text-align: left; }
