@@ -82,6 +82,12 @@
     .hero-stats { display: flex; gap: 48px; }
     .stat-num { font-family: 'Roboto', sans-serif; font-size: 32px; font-weight: 700; color: var(--ink); line-height: 1; }
     .stat-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-top: 4px; }
+   .stat-plus {
+  font-family: 'Roboto', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-left: 2px;
+}
     .hero-avail { display: flex; align-items: center; gap: 9px; font-size: 11px; color: var(--mid); letter-spacing: 0.06em; }
     .dot { width: 7px; height: 7px; background: var(--accent2); border-radius: 50%; animation: pulse 2.5s infinite; }
 
