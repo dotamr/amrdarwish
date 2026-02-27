@@ -121,7 +121,7 @@
     .layer-label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); white-space: nowrap; padding-top: 2px; min-width: 110px; }
     .layer-value { text-align: right; line-height: 1.6; font-size: 12px; color: var(--ink); }
 
-    /* WORK */
+    /* WORK 
     .work-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 56px; align-items: end; }
     .work-intro h2 { font-family: 'Roboto', sans-serif; font-size: clamp(26px, 3vw, 42px); font-weight: 700; line-height: 1.15; }
     .work-intro p { color: var(--mid); line-height: 1.85; }
@@ -156,6 +156,112 @@
     .tag { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.08); padding: 3px 8px; }
     .card-arrow { position: absolute; top: 20px; right: 20px; width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-size: 14px; opacity: 0; transition: opacity 0.3s; }
     .project-card:hover .card-arrow { opacity: 1; }
+*/
+/* WORK */
+.work-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 56px; align-items: end; }
+.work-intro h2 { font-family: 'Roboto', sans-serif; font-size: clamp(26px, 3vw, 42px); font-weight: 700; line-height: 1.15; }
+.work-intro p { color: var(--mid); line-height: 1.85; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 24px;
+}
+
+/* Project Item — new layout */
+.project-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  cursor: none;
+}
+.project-item.featured {
+  grid-column: span 2;
+}
+
+/* Title above card */
+.project-item-title {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+.project-item-title .card-num {
+  font-size: 10px;
+  color: var(--mid);
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 4px;
+}
+.project-item-title .card-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+  margin: 0;
+}
+.project-item.featured .project-item-title .card-title {
+  font-size: 28px;
+}
+
+/* Card — image only */
+.project-item-card {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  background: var(--ink);
+}
+.project-item-card .card-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-item-card:hover .card-bg { transform: scale(1.05); }
+.project-item-card::after {
+  content: '';
+  display: block;
+  padding-top: 70%;
+}
+.project-item.featured .project-item-card::after {
+  padding-top: 56%;
+}
+
+/* Arrow stays on card */
+.card-arrow {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 34px; height: 34px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5);
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+.project-item-card:hover .card-arrow { opacity: 1; }
+
+/* Meta below card */
+.project-item-meta {
+  padding-top: 14px;
+}
+.card-quote {
+  font-size: 11px;
+  color: var(--mid);
+  font-style: italic;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  background: var(--line);
+  padding: 3px 8px;
+}
 
     /* BG patterns */
     .bg-fawry { background: linear-gradient(135deg, #0A1628 0%, #0E2A5A 100%); }
@@ -279,7 +385,9 @@
       footer { padding: 24px; flex-direction: column; gap: 6px; }
       .about-grid, .work-intro, .skills-layout, .contact-grid, .process-header, .teaching-grid { grid-template-columns: 1fr; gap: 40px; }
       .projects-grid { grid-template-columns: 1fr; }
-      .project-card.featured { grid-column: span 1; }
+      /*.project-card.featured { grid-column: span 1; } */
+/* with this: */
+.project-item.featured { grid-column: span 1; }
       .steps { grid-template-columns: repeat(2, 1fr); }
       .exp-row { grid-template-columns: 1fr; gap: 4px; }
       .exp-location { text-align: left; }
