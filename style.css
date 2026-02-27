@@ -55,6 +55,7 @@
     .hero-eyebrow {
       align-self: end;
       padding-top: 140px;
+       padding-bottom: 20px;
       display: flex; align-items: center; gap: 20px;
       font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid);
       opacity: 0; animation: fadeUp 0.7s 0.2s forwards;
